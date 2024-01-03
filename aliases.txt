@@ -1,0 +1,55 @@
+# ======= System Update =======
+alias update="sudo apt update && sudo apt -y upgrade && sudo apt autoclean && sudo apt autoremove"
+
+# ======= ~/.bash_aliases =======
+alias editaliases="nano ~/.bash_aliases"
+alias refreshaliases="source ~/.bash_aliases"
+
+# ======= NGINX =======
+alias nginxerrorlog="sudo nano /var/log/nginx/error.log"
+alias sitesavailable="cd /etc/nginx/sites-available/"
+alias sitesenabled="cd /etc/nginx/sites-enabled/"
+alias nginx="sudo service nginx"
+alias tnginx="sudo nginx -t"
+alias nginxedit="edit_app"
+alias nginxlink="link_app"
+alias nginxunlink="unlink_app"
+
+edit_app() {
+    sudo nano /etc/nginx/sites-available/$1
+}
+
+link_app() {
+    sudo ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/
+}
+
+unlink_app() {
+    sudo unlink /etc/nginx/sites-enabled/$1
+}
+
+# ======= Python =======
+alias createvenv="python3 -m venv venv"
+alias activatevenv="source venv/bin/activate"
+alias installreq="pip install --upgrade pip && pip install -r requirements.txt"
+
+# ======= PHP =======
+alias php="sudo service php8.2-fpm"
+
+# ======= PostgreSQL =======
+alias postgre="sudo service postgresql"
+
+# ======= MySQL =======
+alias mysql="sudo service mysql"
+
+# ======= Django =======
+alias startproject="django-admin startproject"
+alias startapp="django-admin startapp"
+alias makemigrations="python3 manage.py makemigrations"
+alias migrate="python3 manage.py migrate"
+alias createsuperuser="python3 manage.py createsuperuser"
+alias collectstatic="python3 manage.py collectstatic"
+alias runserver="python3 manage.py runserver"
+alias loaddata="python3 manage.py loaddata"
+
+
+alias rm_zone_id="find '/var/projects/' -type f -name '*Zone.Identifier' -delete"
