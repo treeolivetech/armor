@@ -24,7 +24,7 @@ Script for managing the .bash_aliases file - create or overwrite the .bash_alias
     cd manage-bash-aliases
     ```
 
-4. Run the Python script:
+4. Run the Python script (you may need to use `python3` if `python` doesn't work):
 
     ```bash
     python manage_bash_aliases.py
