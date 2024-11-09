@@ -1,6 +1,6 @@
 # Manage Bash Aliases
 
-Script for managing the .bash_aliases file - create or overwrite the .bash_aliases file with a set of predefined aliases for various tasks.
+Nodejs and Python scripts for managing the .bash_aliases file - create or overwrite the .bash_aliases file with a set of predefined aliases for various tasks.
 
 ## Features
 
@@ -10,7 +10,7 @@ Script for managing the .bash_aliases file - create or overwrite the .bash_alias
 
 ## Setup
 
-1. Ensure Python is installed in your system
+1. Ensure Python or Nodejs is installed in your system, depending on which script you'll use.
 
 2. Clone the repository:
 
@@ -24,8 +24,18 @@ Script for managing the .bash_aliases file - create or overwrite the .bash_alias
     cd manage-bash-aliases
     ```
 
-4. Run the Python script (you may need to use `python3` if `python` doesn't work):
+4. Run the script:
 
+    **Node:** _(note the `.mjs` extension)_
+    ```bash
+    node manage_bash_aliases.mjs
+    ``` 
+
+    **Python:**
     ```bash
     python manage_bash_aliases.py
     ``` 
+    or
+    ```bash
+    python3 manage_bash_aliases.py
+    ```
