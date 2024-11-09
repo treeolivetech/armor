@@ -1,11 +1,29 @@
-# ======= System Update =======
 alias update="sudo apt update && sudo apt -y upgrade && sudo apt autoclean && sudo apt autoremove"
-
-# ======= ~/.bash_aliases =======
 alias editaliases="nano ~/.bash_aliases"
-alias refreshaliases="source ~/.bash_aliases"
+alias refresh="source ~/.bash_aliases"
+alias showaliases="cat ~/.bash_aliases"
 
-# ======= NGINX =======
+# ======= repositories =======
+alias repos="cd ~/repos"
+
+# ======= django =======
+alias createvenv="python3 -m venv ./.venv"
+alias activatevenv="source .venv/bin/activate"
+alias installreq="python3 -m pip install --upgrade pip && pip install -r requirements.txt"
+alias startproject="django-admin startproject"
+alias startapp="django-admin startapp"
+alias makemigrations="python3 manage.py makemigrations"
+alias migrate="python3 manage.py migrate"
+alias createsuperuser="python3 manage.py createsuperuser"
+alias collectstatic="python3 manage.py collectstatic"
+alias runserver="python3 manage.py runserver 0.0.0.0:8000"
+alias shell="python3 manage.py shell"
+alias loaddata="python3 manage.py loaddata"
+
+# ======= postgresql =======
+alias postgres="sudo service postgresql"
+
+# ======= nginx =======
 alias nginxerrorlog="sudo nano /var/log/nginx/error.log"
 alias sitesavailable="cd /etc/nginx/sites-available/"
 alias sitesenabled="cd /etc/nginx/sites-enabled/"
@@ -27,29 +45,8 @@ unlink_app() {
     sudo unlink /etc/nginx/sites-enabled/$1
 }
 
-# ======= Python =======
-alias createvenv="python3 -m venv venv"
-alias activatevenv="source venv/bin/activate"
-alias installreq="pip install --upgrade pip && pip install -r requirements.txt"
-
-# ======= PHP =======
+# ======= php =======
 alias php="sudo service php8.2-fpm"
 
-# ======= PostgreSQL =======
-alias postgre="sudo service postgresql"
-
-# ======= MySQL =======
-alias mysql="sudo service mysql"
-
-# ======= Django =======
-alias startproject="django-admin startproject"
-alias startapp="django-admin startapp"
-alias makemigrations="python3 manage.py makemigrations"
-alias migrate="python3 manage.py migrate"
-alias createsuperuser="python3 manage.py createsuperuser"
-alias collectstatic="python3 manage.py collectstatic"
-alias runserver="python3 manage.py runserver"
-alias loaddata="python3 manage.py loaddata"
-
-
+# ======= misc =======
 alias rm_zone_id="find '/var/projects/' -type f -name '*Zone.Identifier' -delete"
