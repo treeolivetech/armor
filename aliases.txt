@@ -1,6 +1,6 @@
 alias update="sudo apt update && sudo apt -y upgrade && sudo apt autoclean && sudo apt autoremove"
 alias editaliases="nano ~/.bash_aliases"
-alias refresh="source ~/.bash_aliases"
+alias refresh="source ~/.bashrc"
 alias showaliases="cat ~/.bash_aliases"
 
 # ======= repositories =======
