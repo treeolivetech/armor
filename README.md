@@ -10,6 +10,7 @@ Script for managing the .bash_aliases file - create or overwrite the .bash_alias
 
 ## Setup
 
+### Python setup
 1. Ensure Python is installed in your system
 
 2. Clone the repository:
@@ -28,4 +29,25 @@ Script for managing the .bash_aliases file - create or overwrite the .bash_alias
 
     ```bash
     python manage_bash_aliases.py
+    ``` 
+
+### Node setup
+1. Ensure Nodejs is installed in your system
+
+2. Clone the repository:
+
+    ```bash
+    git clone https://github.com/your-username/manage-bash-aliases.git
+    ```
+
+3. Change directory
+
+    ```bash
+    cd manage-bash-aliases
+    ```
+
+4. Run the Nodejs script:
+
+    ```bash
+    node manage_bash_aliases.mjs
     ``` 
