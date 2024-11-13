@@ -28,7 +28,7 @@ Nodejs and Python scripts for managing the .bash_aliases file - create or overwr
 
     **Node:** _(note the `.mjs` extension)_
     ```bash
-    node manage_bash_aliases.mjs
+    node manageBashAliases.mjs
     ``` 
 
     **Python:**
