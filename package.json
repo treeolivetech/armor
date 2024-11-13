@@ -1,15 +1,20 @@
 {
   "name": "@wakskevin/manage-bash-aliases",
   "version": "1.0.1",
-  "description": "Quickly set up bash aliases on any Linux machine/server I get my hands on without having to manually type them.",
+  "description": "Quickly set up bash aliases on any Linux machine without having to manually type them.",
   "main": "manageBashAliases.mjs",
   "bin": {
     "manage-bash-aliases": "manageBashAliases.mjs"
   },
   "scripts": {
-    "postinstall": "chmod +x manageBashAliases.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "chmod +x manageBashAliases.mjs"
   },
+  "files": [
+    "manageBashAliases.mjs",
+    "aliases.txt",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/wakskevin/manage-bash-aliases.git"

@@ -1,6 +1,6 @@
 # Manage Bash Aliases
 
-Nodejs and Python scripts for managing the .bash_aliases file - create or overwrite the .bash_aliases file with a set of predefined aliases for various tasks.
+`@wakskevin/manage-bash-aliases` is a tool to quickly set up bash aliases on any Linux machine/server, avoiding the need to manually configure them each time.
 
 ## Features
 
@@ -8,34 +8,15 @@ Nodejs and Python scripts for managing the .bash_aliases file - create or overwr
 
 - **Alias Management:** Adds a predefined set of aliases for updating, editing, and refreshing the .bash_aliases file, along with aliases for repositories, Django, PostgreSQL, Nginx, and more.
 
-## Setup
+## Installation
 
-1. Ensure Python or Nodejs is installed in your system, depending on which script you'll use.
+- Ensure Nodejs is installed in your system.
 
-2. Clone the repository:
+- Use `npx` to run the package directly without installing:
 
-    ```bash
-    git clone https://github.com/your-username/manage-bash-aliases.git
-    ```
+```bash
+npx github:wakskevin/manage-bash-aliases
+```
 
-3. Change directory
-
-    ```bash
-    cd manage-bash-aliases
-    ```
-
-4. Run the script:
-
-    **Node:** _(note the `.mjs` extension)_
-    ```bash
-    node manageBashAliases.mjs
-    ``` 
-
-    **Python:**
-    ```bash
-    python manage_bash_aliases.py
-    ``` 
-    or
-    ```bash
-    python3 manage_bash_aliases.py
-    ```
+## License
+This project is licensed under the MIT License

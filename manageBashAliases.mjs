@@ -5,7 +5,7 @@ import path from "path";
 import readline from "readline";
 
 // Ensure the script has executable permissions
-const scriptPath = path.resolve(import.meta.url.replace('file://', ''));
+const scriptPath = path.resolve(import.meta.url.replace("file://", ""));
 try {
   fs.accessSync(scriptPath, fs.constants.X_OK);
 } catch {
@@ -13,8 +13,11 @@ try {
   fs.chmodSync(scriptPath, 0o755);
 }
 
-// Define the path to the aliases file
-const aliasesFilePath = path.join(process.cwd(), "aliases.txt");
+// Define the path to the aliases file (bundled with package)
+const aliasesFilePath = path.join(
+  path.dirname(new URL(import.meta.url).pathname),
+  "aliases.txt"
+);
 
 fs.readFile(aliasesFilePath, "utf8", (err, bashAliasesContent) => {
   if (err) {
