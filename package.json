@@ -1,5 +1,5 @@
 {
-  "name": "manage-bash-aliases",
+  "name": "@wakskevin/manage-bash-aliases",
   "version": "1.0.0",
   "description": "Quickly set up bash aliases on any linux machine/server I get my hands on without having to manually type them.",
   "main": "manageBashAliases.mjs",
