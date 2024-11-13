@@ -50,3 +50,5 @@ alias php="sudo service php8.2-fpm"
 
 # ======= misc =======
 alias rm_zone_id="find '/var/projects/' -type f -name '*Zone.Identifier' -delete"
+alias code_server_update="curl -fsSL https://code-server.dev/install.sh | sh"
+
