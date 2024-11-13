@@ -22,7 +22,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Bump version (patch, minor, or major)
+        run: |
+          # Automatically bump the patch version (or use 'minor' or 'major')
+          npm version patch --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish to GitHub Packages
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
