@@ -24,7 +24,7 @@ jobs:
 
       - name: Bump version (patch, minor, or major)
         run: |
-          # Automatically bump the patch version (or use 'minor' or 'major')
+          # Automatically bump the patch version (or use "minor" or "major")
           npm version patch --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
