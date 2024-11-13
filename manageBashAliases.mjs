@@ -1,6 +1,17 @@
+#!/usr/bin/env node
+
 import fs from "fs";
 import path from "path";
 import readline from "readline";
+
+// Ensure the script has executable permissions
+const scriptPath = path.resolve(import.meta.url.replace('file://', ''));
+try {
+  fs.accessSync(scriptPath, fs.constants.X_OK);
+} catch {
+  // Make the script executable if it lacks permissions
+  fs.chmodSync(scriptPath, 0o755);
+}
 
 // Define the path to the aliases file
 const aliasesFilePath = path.join(process.cwd(), "aliases.txt");
