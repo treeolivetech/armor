@@ -52,16 +52,3 @@ alias php="sudo service php8.2-fpm"
 alias rm_zone_id="find '/var/projects/' -type f -name '*Zone.Identifier' -delete"
 alias code_server_update="curl -fsSL https://code-server.dev/install.sh | sh"
 
-function remove_recursively() {
-    local folderPath=$1
-    local name=$2
-    local force=$3
-
-    if [ "$force" = "-f" ]; then
-        find "$folderPath" -type d -name "$name" -exec rm -rf {} + -o -type f -name "$name" -exec rm -f {} +
-    else
-        find "$folderPath" -type d -name "$name" -exec rm -r {} + -o -type f -name "$name" -exec rm {} +
-    fi
-}
-
-alias remove_recursively="remove_recursively"
