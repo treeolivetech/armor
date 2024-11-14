@@ -1,13 +1,13 @@
 {
   "name": "@wakskevin/manage-bash-aliases",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Set up bash aliases on any Linux machine without having to manually type them.",
   "main": "index.mjs",
   "bin": {
     "manage-bash-aliases": "index.mjs"
   },
   "scripts": {
-    "postinstall": "chmod +x index.mjs"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
     "index.mjs",
