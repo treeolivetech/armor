@@ -1,6 +1,6 @@
 {
   "name": "@wakskevin/manage-bash-aliases",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Set up bash aliases on any Linux machine without having to manually type them.",
   "main": "index.mjs",
   "bin": {
