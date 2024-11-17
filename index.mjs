@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+import chalk from "chalk";
 import inquirer from "inquirer";
 import generateSSHKey from "./generateSSHKey/index.mjs";
 import manageBashAliases from "./manageBashAliases/index.mjs";
@@ -11,7 +13,9 @@ async function main() {
       choices: [
         { name: "Manage Bash Aliases", value: "manageBashAliases" },
         { name: "Generate SSH Keys", value: "generateSSHKey" },
+        { name: "Exit", value: "exit" },
       ],
+      default: "exit",
     },
   ];
 
@@ -26,8 +30,12 @@ async function main() {
       generateSSHKey();
       break;
 
+    case "exit":
+      console.log(chalk.yellow("Exiting the utility. Goodbye!"));
+      break;
+
     default:
-      console.log("Invalid choice.");
+      console.log(chalk.red("Invalid choice."));
       break;
   }
 }
