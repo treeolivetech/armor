@@ -1,7 +1,7 @@
 {
   "name": "@wakskevin/dev-belt",
-  "version": "1.2.0",
-  "description": "Set up bash aliases on any Linux machine without having to manually type them.",
+  "version": "0.0.1",
+  "description": "A lightweight toolkit for automating developer setup tasks.",
   "main": "index.mjs",
   "bin": {
     "dev-belt": "index.mjs"
@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "chalk": "^5.3.0"
+    "chalk": "^5.3.0",
+    "inquirer": "^12.1.0"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,8 @@
   "keywords": [
     "setup",
     "bash",
-    "aliases"
+    "aliases",
+    "ssh"
   ],
   "author": "Kevin Wasike",
   "license": "MIT",
