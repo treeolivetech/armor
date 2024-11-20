@@ -1,12 +1,15 @@
 import chalk from "chalk";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "url";
 import askQuestion from "../utils/askQuestion.mjs";
 import runScript from "../utils/runScript.mjs";
 
-const scriptPath = new URL(import.meta.url).pathname;
-const aliasesFilePath = path.join(path.dirname(scriptPath), "aliases.txt");
-const sourceScriptPath = path.join(path.dirname(scriptPath), "source_bash.sh");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const aliasesFilePath = path.join(__dirname, "aliases.txt");
+const sourceScriptPath = path.join(__dirname, "source_bash.sh");
 
 export default async function manageBashAliases() {
   try {
