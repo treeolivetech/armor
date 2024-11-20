@@ -2,8 +2,8 @@ import chalk from "chalk";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "url";
-import askQuestion from "../utils/askQuestion.mjs";
-import runScript from "../utils/runScript.mjs";
+import ask from "../utils/ask.mjs";
+import run from "../utils/run.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,7 +22,7 @@ export default async function manageBashAliases() {
     try {
       await fs.access(filePath, fs.constants.F_OK);
 
-      const answer = await askQuestion(
+      const answer = await ask(
         "The ~/.bash_aliases file already exists. Do you want to overwrite it? (y (yes) / n (no)): "
       );
 
@@ -51,7 +51,7 @@ async function writeToFile(filePath, content) {
     // Convert content to Unix-style line endings and write to file
     const unixContent = content.replace(/\r\n/g, "\n");
     await fs.writeFile(filePath, unixContent, "utf8");
-    console.log(chalk.green("File written with Unix-style line endings."));
+    // console.log(chalk.green("File written with Unix-style line endings."));
   } catch (error) {
     console.error(chalk.red(`Error writing file: ${error.message}`));
     return; // Stop further execution if writing fails
@@ -59,7 +59,7 @@ async function writeToFile(filePath, content) {
 
   try {
     // Source bashrc
-    await runScript(sourceScriptPath);
+    await run(sourceScriptPath);
   } catch (error) {
     console.error(chalk.red(`Error sourcing ~/.bashrc: ${error.message}`));
   }

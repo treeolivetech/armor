@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import readline from "readline";
 
-export default function askQuestion(query) {
+export default function ask(query) {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,

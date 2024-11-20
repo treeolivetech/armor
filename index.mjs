@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import chalk from "chalk";
 import inquirer from "inquirer";
 import generateSSHKey from "./generateSSHKey/index.mjs";
@@ -23,11 +24,11 @@ async function main() {
 
   switch (answers.utility) {
     case "manageBashAliases":
-      manageBashAliases();
+      await manageBashAliases();
       break;
 
     case "generateSSHKey":
-      generateSSHKey();
+      await generateSSHKey();
       break;
 
     case "exit":
@@ -38,6 +39,11 @@ async function main() {
       console.log(chalk.red("Invalid choice."));
       break;
   }
+
+  process.exit(0);
 }
 
-main();
+main().catch((error) => {
+  console.error(chalk.red(`An error occurred: ${error.message}`));
+  process.exit(1);
+});
