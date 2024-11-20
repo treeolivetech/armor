@@ -10,12 +10,6 @@ const setupScriptPath = path.join(scriptDir, "setup_ssh.sh");
 
 export default async function generateSSHKey() {
   try {
-    const setup = await ask("Set up Git SSH Key? y(es) / n(o): ");
-    if (!["y", "yes"].includes(setup.toLowerCase())) {
-      console.log(chalk.yellow("No action taken."));
-      return;
-    }
-
     const sshDir = path.join(
       process.env.HOME || process.env.USERPROFILE,
       ".ssh"
