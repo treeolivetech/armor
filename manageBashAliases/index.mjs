@@ -2,7 +2,7 @@ import chalk from "chalk";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "url";
-import ask from "../utils/ask.mjs";
+import { confirm } from "@inquirer/prompts";
 import run from "../utils/run.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,11 +22,12 @@ export default async function manageBashAliases() {
     try {
       await fs.access(filePath, fs.constants.F_OK);
 
-      const answer = await ask(
-        "The ~/.bash_aliases file already exists. Do you want to overwrite it? (y (yes) / n (no)): "
-      );
+      const overwrite = await confirm({
+        message: "The ~/.bash_aliases file already exists. Do you want to overwrite it?",
+        default: false,
+      });
 
-      if (["yes", "y"].includes(answer.toLowerCase())) {
+      if (overwrite) {
         await writeToFile(filePath, bashAliasesContent);
         console.log(
           chalk.green("The ~/.bash_aliases file has been overwritten.")
@@ -51,7 +52,6 @@ async function writeToFile(filePath, content) {
     // Convert content to Unix-style line endings and write to file
     const unixContent = content.replace(/\r\n/g, "\n");
     await fs.writeFile(filePath, unixContent, "utf8");
-    // console.log(chalk.green("File written with Unix-style line endings."));
   } catch (error) {
     console.error(chalk.red(`Error writing file: ${error.message}`));
     return; // Stop further execution if writing fails

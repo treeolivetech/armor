@@ -35,8 +35,8 @@ export default async function run(scriptPath, args = []) {
     const command = await getBashCommand(`${scriptPath} ${args.join(" ")}`);
     const { stdout, stderr } = await execAsync(command);
 
-    if (stdout) console.log(chalk.green(stdout));
-    if (stderr) console.error(chalk.yellow(stderr));
+    if (stdout) console.log(chalk.green(stdout.trim()));
+    if (stderr) console.error(chalk.yellow(stderr.trim()));
 
     return stdout.trim(); // Return stdout as the result
   } catch (error) {
