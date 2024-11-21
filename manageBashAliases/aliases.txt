@@ -2,57 +2,78 @@ alias update="sudo apt update && sudo apt -y upgrade && sudo apt autoclean && su
 alias editaliases="nano ~/.bash_aliases"
 alias refresh="source ~/.bashrc"
 alias showaliases="cat ~/.bash_aliases"
+alias la="ls -a"
 
-# ======= repositories =======
-alias repos="cd ~/repos"
+# ======= OS Detection =======
+OS_TYPE="$(uname -s)"
 
-# ======= django =======
-alias createvenv="python3 -m venv ./.venv"
+case "$OS_TYPE" in
+    Linux)
+        PYTHON_CMD="python3"  # Prefer python3 on Linux
+        REPO_PATH="~/repos"
+        ;;
+    MINGW*|CYGWIN*|MSYS*)
+        PYTHON_CMD="python"  # Prefer python on Windows
+        REPO_PATH="/d/Repositories"
+        ;;
+    *)
+        echo "Unsupported operating system: $OS_TYPE" >&2
+        return 1
+        ;;
+esac
+
+# ======= Repositories =======
+function repos {
+    cd $REPO_PATH || echo "Directory $REPO_PATH does not exist"
+}
+
+# ======= Python & Django =======
+alias createvenv="$PYTHON_CMD -m venv ./.venv"
 alias activatevenv="source .venv/bin/activate"
-alias installreq="python3 -m pip install --upgrade pip && pip install -r requirements.txt"
-alias startproject="django-admin startproject"
-alias startapp="django-admin startapp"
-alias makemigrations="python3 manage.py makemigrations"
-alias migrate="python3 manage.py migrate"
-alias createsuperuser="python3 manage.py createsuperuser"
-alias collectstatic="python3 manage.py collectstatic"
-alias runserver="python3 manage.py runserver 0.0.0.0:8000"
-alias shell="python3 manage.py shell"
-alias loaddata="python3 manage.py loaddata"
+alias installreq="$PYTHON_CMD -m pip install --upgrade pip && pip install -r requirements.txt"
 
-# ======= postgresql =======
+# Function to check for Pipenv and run commands
+function django_command {
+    if [ -f "Pipfile" ]; then
+        pipenv run "$@"
+    else
+        "$@"
+    fi
+}
+
+# Django commands using the detected Python version
+function startproject { django_command django-admin startproject "$@"; }
+function startapp { django_command django-admin startapp "$@"; }
+function makemigrations { django_command $PYTHON_CMD manage.py makemigrations "$@"; }
+function migrate { django_command $PYTHON_CMD manage.py migrate "$@"; }
+function createsuperuser { django_command $PYTHON_CMD manage.py createsuperuser "$@"; }
+function collectstatic { django_command $PYTHON_CMD manage.py collectstatic "$@"; }
+function runserver { django_command $PYTHON_CMD manage.py runserver 0.0.0.0:8000 "$@"; }
+function shell { django_command $PYTHON_CMD manage.py shell "$@"; }
+function loaddata { django_command $PYTHON_CMD manage.py loaddata "$@"; }
+
+# ======= PostgreSQL =======
 alias postgres="sudo service postgresql"
 
-# ======= nginx =======
+# ======= Nginx =======
 alias nginxerrorlog="sudo nano /var/log/nginx/error.log"
 alias sitesavailable="cd /etc/nginx/sites-available/"
 alias sitesenabled="cd /etc/nginx/sites-enabled/"
 alias nginx="sudo service nginx"
 alias tnginx="sudo nginx -t"
-alias nginxedit="edit_app"
-alias nginxlink="link_app"
-alias nginxunlink="unlink_app"
 
-edit_app() {
-    sudo nano /etc/nginx/sites-available/$1
-}
+function nginxedit { sudo nano /etc/nginx/sites-available/$1; }
+function nginxlink { sudo ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/; }
+function nginxunlink { sudo unlink /etc/nginx/sites-enabled/$1; }
 
-link_app() {
-    sudo ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/
-}
-
-unlink_app() {
-    sudo unlink /etc/nginx/sites-enabled/$1
-}
-
-# ======= php =======
+# ======= PHP =======
 alias php="sudo service php8.2-fpm"
 
-# ======= misc =======
+# ======= Misc =======
 alias rm_zone_id="find '/var/projects/' -type f -name '*Zone.Identifier' -delete"
 alias code_server_update="curl -fsSL https://code-server.dev/install.sh | sh"
 
-function remove_recursively() {
+function remove_recursively {
     local folderPath=$1
     local name=$2
     local force=$3
@@ -63,5 +84,3 @@ function remove_recursively() {
         find "$folderPath" -type d -name "$name" -exec rm -r {} + -o -type f -name "$name" -exec rm {} +
     fi
 }
-
-alias remove_recursively="remove_recursively"
