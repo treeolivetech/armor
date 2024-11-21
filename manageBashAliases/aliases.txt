@@ -48,7 +48,7 @@ function makemigrations { django_command $PYTHON_CMD manage.py makemigrations "$
 function migrate { django_command $PYTHON_CMD manage.py migrate "$@"; }
 function createsuperuser { django_command $PYTHON_CMD manage.py createsuperuser "$@"; }
 function collectstatic { django_command $PYTHON_CMD manage.py collectstatic "$@"; }
-function runserver { django_command $PYTHON_CMD manage.py runserver 0.0.0.0:8000 "$@"; }
+function runserver { django_command $PYTHON_CMD manage.py runserver "$@"; }
 function shell { django_command $PYTHON_CMD manage.py shell "$@"; }
 function loaddata { django_command $PYTHON_CMD manage.py loaddata "$@"; }
 
