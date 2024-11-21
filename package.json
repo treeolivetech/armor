@@ -1,6 +1,6 @@
 {
-  "name": "@wakskevin/dev-belt",
-  "version": "0.3.4",
+  "name": "@wakskev/dev-belt",
+  "version": "0.3.5",
   "description": "A lightweight toolkit for automating developer setup tasks.",
   "main": "index.mjs",
   "bin": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wakskevin/dev-belt.git"
+    "url": "https://github.com/wakskev/dev-belt.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -29,7 +29,7 @@
   "author": "Kevin Wasike",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wakskevin/dev-belt/issues"
+    "url": "https://github.com/wakskev/dev-belt/issues"
   },
-  "homepage": "https://github.com/wakskevin/dev-belt#readme"
+  "homepage": "https://github.com/wakskev/dev-belt#readme"
 }
