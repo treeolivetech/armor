@@ -1,10 +1,10 @@
 {
-  "name": "@wakskev/dev-belt",
-  "version": "0.3.6",
+  "name": "@treolyv/armor",
+  "version": "0.0.1",
   "description": "A lightweight toolkit for automating developer setup tasks.",
   "main": "index.mjs",
   "bin": {
-    "dev-belt": "index.mjs"
+    "armor": "index.mjs"
   },
   "scripts": {
     "start": "node index.mjs"
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wakskev/dev-belt.git"
+    "url": "https://github.com/treolyv/armor.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -29,7 +29,7 @@
   "author": "Kevin Wasike",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wakskev/dev-belt/issues"
+    "url": "https://github.com/treolyv/armor/issues"
   },
-  "homepage": "https://github.com/wakskev/dev-belt#readme"
+  "homepage": "https://github.com/treolyv/armor#readme"
 }
