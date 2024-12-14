@@ -4,10 +4,10 @@
   "description": "A lightweight toolkit for automating developer setup tasks.",
   "main": "index.mjs",
   "bin": {
-    "armor": "index.mjs"
+    "armor": "main.mjs"
   },
   "scripts": {
-    "start": "node index.mjs"
+    "start": "node main.mjs"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.1.0",
